@@ -9,3 +9,7 @@ Use the .gs and for activators, use 2: `unStarModified()` first, and some hours 
  - `TEACHERS` : an array with the teachers mails.
  - `FOLDERID` : the classroom drive folder id.
  - `FOLDERNAME` : the name of the folder that will be created inside each appointment folder. This is the folder you will download as .zip.
+ 
+## Notes
+Sorry for my mistakes, I am relatively new to Google App Scripts.
+Contact me if you have any doubt.
