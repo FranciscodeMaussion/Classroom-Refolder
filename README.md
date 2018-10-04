@@ -1,6 +1,7 @@
 # Classroom-Refolder
-For Google Classroom I have some toubles identifying a student work, so I decide it to make a folder for each student in each appointment.
-That is how I can download all the appointment folder in a zip without lossing the student identity.
+
+When using Google Classroom, I had some trouble id each student's work. So I thought it was a good idea to make a personal folder for each student in each appointment.
+This way, when I download the appointment folder in a zip, I don't lose the student's identity.
 
 ## Config 
 Use the .gs and for activators, use 2: `unStarModified()` first, and some hours later `main()`.
@@ -12,4 +13,4 @@ Use the .gs and for activators, use 2: `unStarModified()` first, and some hours 
  
 ## Notes
 Sorry for my mistakes, I am relatively new to Google App Scripts.
-Contact me if you have any doubt.
+You can contact me if you have any doubt.
