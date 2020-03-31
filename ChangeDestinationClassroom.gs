@@ -1,6 +1,7 @@
 var TEACHERS = ["prof1@gmail.com","prof2@domain.com", "prof3@domain.edu.ar"]
 var FOLDERID = "folderid";
 var FOLDERNAME = "foldername"
+var FOLDERPROFESSORS = "profesor(no backup) folderid"
 
 function main() {
   var parentFolder = DriveApp.getFolderById(FOLDERID).getFolders();
@@ -42,7 +43,8 @@ function copyFilesToFolder(source_folder) {
       folderName = owner.getName()+"-"+owner.getEmail();
       dest_folder = createIfDoesntExists(correction, folderName);
       // save in folder
-      fileName = "("+file.getLastUpdated()+")-"+file.getName();
+      fileName = "("+formatDate(file.getLastUpdated())+")-"+file.getName();
+      Logger.log(file.getLastUpdated());
       file.makeCopy(dest_folder).setName(fileName);
       file.setStarred(true);
     }
@@ -64,7 +66,7 @@ function unStarModified(){
   var parentFolder = DriveApp.getFolderById(FOLDERID).getFolders();
   while (parentFolder.hasNext()) {
     var folder = parentFolder.next();
-    if (folder.isStarred() && verifyFiles(folder)){
+    if (folder.isStarred() && verifyFiles(folder) && folder.getId() != FOLDERPROFESSORS){
       folder.setStarred(false);
     }
   }
@@ -79,4 +81,13 @@ function verifyFiles(folder){
     }
   }
   return false;
+}
+
+function formatDate (now) {
+  year = "" + now.getFullYear();
+  month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+  day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+  hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+  minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+  return day + "/" + month + "/" + year + "-" + hour + ":" + minute;
 }
